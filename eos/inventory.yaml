@@ -1,0 +1,22 @@
+all:
+  children:
+    leafs:
+      hosts:
+        10.1.1.214:
+        10.1.1.215:
+        10.1.1.216:
+        10.1.1.217:
+    spines:
+      hosts:
+        10.1.1.212:
+        10.1.1.213:
+  vars:
+    #ansible_connection: httpapi # network_cli
+    ansible_network_os: eos
+    ansible_user: arista
+    # should use vault for passwords - leaving un-encrypted for ease of sharing for labs
+    ansible_ssh_pass: arista
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false

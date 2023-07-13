@@ -1,0 +1,15 @@
+---
+- name: Get Facts
+  hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Collect BGP Status
+      eos_command:
+        commands:
+          - show ip bgp summary
+      register: bgp_status
+
+    - name: Display result
+      debug:
+        var: bgp_status
